@@ -17,4 +17,9 @@ class Note extends Model
         'is_published',
         'heart_count',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
