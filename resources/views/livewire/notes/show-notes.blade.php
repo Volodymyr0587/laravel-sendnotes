@@ -33,7 +33,7 @@ new class extends Component {
                     <a href="#"
                         class="text-xl font-bold transition duration-300 ease-in-out hover:underline hover:text-blue-500">{{
                         $note->title }}</a>
-                        <p>{{ Str::limit($note->body, 20, '...') }}</p>
+                        <p class="text-xs mt-2">{{ Str::limit($note->body, 50, '...') }}</p>
                     </div>
                     <div class="text-xs text-gray-500">{{ \Carbon\Carbon::parse($note->send_date)->format('M-d-Y') }}
                     </div>
