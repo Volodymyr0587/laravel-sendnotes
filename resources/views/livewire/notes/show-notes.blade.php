@@ -4,6 +4,13 @@ use Livewire\Volt\Component;
 use App\Models\Note;
 
 new class extends Component {
+
+    public function delete($noteId)
+    {
+        $note = Note::where('id', $noteId)->first();
+        $note->delete();
+    }
+
     public function with()
     {
         return [
@@ -25,7 +32,7 @@ new class extends Component {
         </div>
         @else
         <x-button primary icon-right="plus" class="mb-12" href="{{ route('notes.create') }}" wire:navigate>Create note</x-button>
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="grid sm:grid-cols-3 gap-4">
             @foreach ($notes as $note)
             <x-card wire:key='{{ $note->id }}'>
                 <div class="flex justify-between">
@@ -42,7 +49,7 @@ new class extends Component {
                     <p class="text-xs">Recipient: <span class="font-semibold">{{ $note->recipient }}</span></p>
                     <div>
                         <x-button.circle icon="eye"></x-button.circle>
-                        <x-button.circle icon="trash"></x-button.circle>
+                        <x-button.circle icon="trash" wire:click="delete('{{ $note->id }}')"></x-button.circle>
                     </div>
                 </div>
             </x-card>
