@@ -24,7 +24,8 @@ new class extends Component {
             <x-button primary icon-right="plus" class="mt-6" href="{{ route('notes.create') }}" wire:navigate>Create note</x-button>
         </div>
         @else
-        <div class="grid grid-cols-1 gap-4 mt-12 sm:grid-cols-2">
+        <x-button primary icon-right="plus" class="mb-12" href="{{ route('notes.create') }}" wire:navigate>Create note</x-button>
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             @foreach ($notes as $note)
             <x-card wire:key='{{ $note->id }}'>
                 <div class="flex justify-between">
