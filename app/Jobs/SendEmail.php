@@ -27,7 +27,7 @@ class SendEmail implements ShouldQueue
      */
     public function handle(): void
     {
-        $noteUrl = config('app.url' . '/notes/' . $this->note->id);
+        $noteUrl = config('app.url') . '/notes/' . $this->note->id;
 
         $emailContent = "Hello, you've received a new note. View it here: {$noteUrl}";
 
