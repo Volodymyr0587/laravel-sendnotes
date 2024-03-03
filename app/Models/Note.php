@@ -19,6 +19,10 @@ class Note extends Model
         'recipient',
     ];
 
+    protected $casts = [
+        'is_published' => 'boolean',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
